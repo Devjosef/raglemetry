@@ -1,0 +1,6 @@
+2026-09-25T01:44:58Z [INFO] Auth service connection established. User: admin@internal.net
+2026-09-25T01:45:01Z [INFO] Processing batch updates for active_sessions
+2026-09-25T01:45:02Z [WARN] Database pool connection delay detected. Latency: 180ms
+2026-09-25T01:45:03Z [ERROR] TIMEOUT: Connection pool exhausted while processing query FP_ERR_504
+2026-09-25T01:45:03Z [ERROR] StackTrace: Auth token 'Bearer eyJhbGciOi...' failed to re-validate during query drop
+2026-09-25T01:45:04Z [CRITICAL] Service HTTP 504 Gateway Timeout thrown at /api/v1/checkout

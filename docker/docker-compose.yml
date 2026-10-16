@@ -1,0 +1,13 @@
+services:
+  raglemetry:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: raglemetry-cli
+    environment:
+      - PYTHONUNBUFFERED=1
+      - RAGLEMETRY_OUTPUT_DIR=/app/output
+    volumes:
+      - ../output:/app/output
+    stdin_open: true
+    tty: true

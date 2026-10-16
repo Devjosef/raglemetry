@@ -1,0 +1,18 @@
+{
+  "FP_ERR_504": {
+    "transaction_id": "TX_99201",
+    "query_fingerprint": "FP_ERR_504",
+    "command_type": "DDL_ALTER",
+    "execution_time_ms": 4820,
+    "lock_wait": true,
+    "schema_target": "active_sessions"
+  },
+  "FP_SELECT_001": {
+    "transaction_id": "TX_99180",
+    "query_fingerprint": "FP_SELECT_001",
+    "command_type": "SELECT_INDEX",
+    "execution_time_ms": 12,
+    "lock_wait": false,
+    "schema_target": "users"
+  }
+}
