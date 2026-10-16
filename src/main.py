@@ -1,6 +1,7 @@
 import argparse
 import asyncio
-import sys
+import os
+from pathlib import Path
 import shutil
 from typing import Dict, Any
 
@@ -82,7 +83,10 @@ async def run_diagnostic_pipeline(
         return {}
 
     finally:
-        tracer.flush()
+        # Ensure output directory exists and flush trace JSON there
+        output_dir = os.getenv("RAGLEMETRY_OUTPUT_DIR", "output")
+        Path(output_dir).mkdir(parents=True, exist_ok=True)
+        tracer.flush(output_dir=output_dir)
 
 
 def check_local_runtimes() -> None:
@@ -98,7 +102,7 @@ def check_local_runtimes() -> None:
 
 def main():
     parser = argparse.ArgumentParser(description="Raglemetry: Audit Before Synthesis (ABS) Diagnostic Engine")
-    parser.add_argument("--log-path", default="app.log", help="Path to incident log file")
+    parser.add_argument("--log-path", default="mock/app.log", help="Path to incident log file")
     parser.add_argument("--pattern", "--alert", dest="pattern", default="TIMEOUT", help="Search pattern or alert text")
     parser.add_argument("--sha", default="a8f9c2d", help="Git commit SHA to lookup")
     parser.add_argument("--fingerprint", default="FP_ERR_504", help="DB query fingerprint")

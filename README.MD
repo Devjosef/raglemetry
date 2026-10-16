@@ -92,7 +92,13 @@ docker-compose -f docker/docker-compose.yml up --build
 ### 2. Trigger an Incident Diagnostic
 
 ```bash
-python -m src.main --alert "TIMEOUT" --sha a8f9c2d --fingerprint FP_ERR_504
+python3 -m src.main --alert "TIMEOUT" --sha a8f9c2d --fingerprint FP_ERR_504
+```
+
+### 3. Verify the generated trace
+
+```bash
+test -f output/audit_trace.json && cat output/audit_trace.json
 ```
 
 If execution is interrupted during a scan (`Ctrl+C`), the telemetry wrapper preserves your data:

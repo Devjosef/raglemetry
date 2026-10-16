@@ -1,90 +1,90 @@
 {
   "meta": {
-    "generated_at": "2026-09-26T08:20:04.070687+00:00",
+    "generated_at": "2026-10-16T10:44:48.898100+00:00",
     "total_events": 12,
-    "total_duration_ms": 8.23
+    "total_duration_ms": 11.45
   },
   "audit_trace": [
     {
-      "timestamp": "2026-09-26T08:20:04.068707+00:00",
-      "elapsed_ms": 6.24,
+      "timestamp": "2026-10-16T10:44:48.891606+00:00",
+      "elapsed_ms": 4.94,
       "stage": "MAIN",
       "message": "Initializing Raglemetry concurrent audit scan",
       "details": {}
     },
     {
-      "timestamp": "2026-09-26T08:20:04.068905+00:00",
-      "elapsed_ms": 6.44,
+      "timestamp": "2026-10-16T10:44:48.891767+00:00",
+      "elapsed_ms": 5.12,
       "stage": "LOG_WORKER",
-      "message": "Initiating Boyer-Moore scan on 'non_existent_file.log' for pattern: 'PATTERN'",
+      "message": "Initiating Boyer-Moore scan on 'app.log' for pattern: 'TIMEOUT'",
       "details": {}
     },
     {
-      "timestamp": "2026-09-26T08:20:04.070321+00:00",
-      "elapsed_ms": 7.86,
+      "timestamp": "2026-10-16T10:44:48.897304+00:00",
+      "elapsed_ms": 10.65,
       "stage": "GIT_WORKER",
-      "message": "Executing Git lookup for SHA: 'invalid_sha' / File: 'None'",
+      "message": "Executing Git lookup for SHA: 'a8f9c2d' / File: 'None'",
       "details": {}
     },
     {
-      "timestamp": "2026-09-26T08:20:04.070336+00:00",
-      "elapsed_ms": 7.87,
+      "timestamp": "2026-10-16T10:44:48.897330+00:00",
+      "elapsed_ms": 10.68,
       "stage": "LOG_WORKER",
-      "message": "Error opening the log file non_existent_file.log: [Errno 2] No such file or directory: 'non_existent_file.log'",
+      "message": "Error opening the log file app.log: [Errno 2] No such file or directory: 'app.log'",
       "details": {}
     },
     {
-      "timestamp": "2026-09-26T08:20:04.070429+00:00",
-      "elapsed_ms": 7.97,
+      "timestamp": "2026-10-16T10:44:48.897521+00:00",
+      "elapsed_ms": 10.86,
       "stage": "DB_WORKER",
-      "message": "Executing structural DB lookup for fingerprint: 'invalid_fp'",
+      "message": "Executing structural DB lookup for fingerprint: 'FP_ERR_504'",
       "details": {}
     },
     {
-      "timestamp": "2026-09-26T08:20:04.070510+00:00",
-      "elapsed_ms": 8.05,
+      "timestamp": "2026-10-16T10:44:48.897716+00:00",
+      "elapsed_ms": 11.07,
       "stage": "LOG_WORKER",
-      "message": "Scan complete for 'non_existent_file.log'. Hits found: 0",
+      "message": "Scan complete for 'app.log'. Hits found: 0",
       "details": {}
     },
     {
-      "timestamp": "2026-09-26T08:20:04.070525+00:00",
-      "elapsed_ms": 8.06,
+      "timestamp": "2026-10-16T10:44:48.897735+00:00",
+      "elapsed_ms": 11.09,
       "stage": "GIT_WORKER",
-      "message": "Git lookup complete. Exact match: False, Path matches: 0",
+      "message": "Git lookup complete. Exact match: True, Path matches: 0",
       "details": {}
     },
     {
-      "timestamp": "2026-09-26T08:20:04.070556+00:00",
-      "elapsed_ms": 8.09,
+      "timestamp": "2026-10-16T10:44:48.897832+00:00",
+      "elapsed_ms": 11.18,
       "stage": "DB_WORKER",
-      "message": "DB lookup complete. Fingerprint match found: False (Identity-free)",
+      "message": "DB lookup complete. Fingerprint match found: True (Identity-free)",
       "details": {}
     },
     {
-      "timestamp": "2026-09-26T08:20:04.070599+00:00",
-      "elapsed_ms": 8.14,
+      "timestamp": "2026-10-16T10:44:48.897916+00:00",
+      "elapsed_ms": 11.25,
       "stage": "SCRUBBER",
       "message": "Sanitizing collected worker payloads",
       "details": {}
     },
     {
-      "timestamp": "2026-09-26T08:20:04.070614+00:00",
-      "elapsed_ms": 8.15,
+      "timestamp": "2026-10-16T10:44:48.898020+00:00",
+      "elapsed_ms": 11.37,
       "stage": "SYNTHESIS",
       "message": "Compiling closed-loop prompt payload from audit trace",
       "details": {}
     },
     {
-      "timestamp": "2026-09-26T08:20:04.070670+00:00",
-      "elapsed_ms": 8.21,
+      "timestamp": "2026-10-16T10:44:48.898086+00:00",
+      "elapsed_ms": 11.44,
       "stage": "SYNTHESIS",
-      "message": "Closed-loop prompt successfully compiled (3287 characters)",
+      "message": "Closed-loop prompt successfully compiled (3232 characters)",
       "details": {}
     },
     {
-      "timestamp": "2026-09-26T08:20:04.070679+00:00",
-      "elapsed_ms": 8.22,
+      "timestamp": "2026-10-16T10:44:48.898095+00:00",
+      "elapsed_ms": 11.45,
       "stage": "MAIN",
       "message": "Diagnostic pipeline execution completed successfully",
       "details": {}
