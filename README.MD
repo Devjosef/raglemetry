@@ -16,8 +16,8 @@ Raglemetry enforces an **ABS (Audit Before Synthesis)** architecture:
 
 | What Raglemetry IS | What Raglemetry IS NOT |
 |---|---|
-| **A Local-First Diagnostic Utility:** Designed to run locally as an air-gapped shell tool or container. | **A Commercial SaaS:** It contains zero telemetry tracking, cloud SaaS dependencies, or subscription billing hooks. |
-| **A Deterministic Auditer:** Relies on Boyer-Moore scanning and direct hash lookups with \(O(1)\) complexity rather than fuzzy vector embeddings. | **An Autonomous Agent:** It does not execute remote remediation scripts or modify production servers automatically. |
+| **A Local Diagnostic Utility:** Designed to run locally as an air-gapped shell tool or container. | **A Commercial SaaS:** It contains zero telemetry tracking, cloud SaaS dependencies, or subscription billing hooks. |
+| **A Deterministic Auditer:** Relies on Boyer-Moore scanning and direct hash lookups with \(O(1)\) complexity rather than vector embeddings. | **An Autonomous Agent:** It does not execute remote remediation scripts or modify production servers automatically. |
 | **Provider-Agnostic:** Decouples trace generation from model execution, supporting local offline runtimes out-of-the-box. | **A Monolithic APM:** It is a targeted incident-response compiler, not a 24/7 application performance monitoring suite. |
 
 ## System Architecture
@@ -36,19 +36,19 @@ Raglemetry enforces an **ABS (Audit Before Synthesis)** architecture:
 
 ## Key Technical Mechanisms
 
-### Deterministic Retrieval 
+### Retrieval 
 
 Rather than maintaining vector indexes on fast-changing log streams, Raglemetry uses targeted hash lookups and Boyer-Moore pattern scanning. This provides instant, index-free scanning over raw telemetry files.
 
-### Bounded Latency & Graceful Interruption
+### Latency & Graceful Interruption
 
-Workers run concurrently using asynchronous threads. If execution is interrupted (e.g., via `Ctrl+C`), the thread-safe telemetry wrapper flushes all collected state up to that millisecond, preserving the ground-truth `audit_trace.json`.
+Workers run concurrently using asynchronous threads. If execution is interrupted (e.g., via `Ctrl+C`), the thread-safe telemetry wrapper flushes all collected state up to that millisecond, preserving the truth in `audit_trace.json`.
 
-### Programmatic Citation Enforcement & Anti-Hallucination
+### Enforcement & Anti-Hallucination
 
 To prevent models from fabricating details, the prompt template enforces strict structural boundaries, requiring direct source stage citations for every claim or commit SHA.
 
-### Untrusted Input Handling & Redaction
+### Input Handling & Redaction
 
 Log messages, commit messages, and query statements can contain sensitive data:
 
