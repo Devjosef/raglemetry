@@ -62,17 +62,22 @@ raglemetry/
 ├── README.md
 ├── docker/
 │   ├── Dockerfile
-│   └── docker-compose.yml
-├── examples/
-│   ├── sample_audit_trace.json
-│   └── sample_synthesis_report.md
+│   ├── docker-compose.yml
+│   └── .dockerignore
 ├── src/
-│   ├── main.py             # CLI orchestrator & runtime checks
-│   ├── telemetry.py        # Thread-safe AuditTracer & SIGINT handler
-│   ├── ingestion/          # Data parsers & PII/secret scrubbers
-│   ├── workers/            # Concurrent search workers (Log, Git, DB)
-│   └── synthesis/          # Prompt framing & pluggable llm_client.py
-├── mock/                   # Sample incident logs, Git commits, DB commands
+│   ├── main.py             # Entry point & CLI handler
+│   ├── telemetry.py        # Real-time audit logger & graceful shutdown
+│   ├── ingestion/          # Data parsers & PII/secret scrubbing
+│   ├── workers/            # Concurrent search workers & circuit breakers
+│   └── synthesis/          # Prompt framing & citation verifier
+│       ├── synthesis.py    # Deterministic prompt compilation
+│       └── llm_client.py   # Pluggable local LLM runtime (Ollama/fallback)
+├── mock/                   # Ground-truth mock incident artifacts
+│   ├── app.log             # Sample microservice application logs
+│   ├── db_telemetry.json   # Sample structural database transaction logs
+│   └── git_history.json    # Sample commit history and metadata
+├── output/                 # Local runtime output directory
+│   └── audit_trace.json    # Generated immutable ground truth trace
 └── tests/                  # Unit & integration test suites
 ```
 

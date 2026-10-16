@@ -13,8 +13,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Build Docker image with Bake
-        run: COMPOSE_BAKE=true docker compose -f docker/docker-compose.yml build
+      - name: Build Docker image
+        run: docker compose -f docker/docker-compose.yml build
 
       - name: Run Raglemetry audit scan
         run: |
